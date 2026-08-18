@@ -1,0 +1,1 @@
+const fs=require('fs');const uuid=process.env.UUID;const path=process.env.WS_PATH||'/vless';if(!uuid)throw new Error('UUID is required');const c=fs.readFileSync('config/config.template.json','utf8').replaceAll('${UUID}',uuid).replaceAll('${WS_PATH}',path);JSON.parse(c);fs.writeFileSync('config/runtime.json',c);console.log('Xray configuration generated.');
